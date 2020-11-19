@@ -1,22 +1,30 @@
-﻿#include <iostream>
-#include<locale>
-#include<iomanip>
-#include "file1.h"
+﻿#include <iostream> 
+#include <iomanip> 
+#include <cmath>
+#include <locale>
+#include "Factorial.h" 
+#include "Sin.h" 
+#include "Soch.h" 
 
 using namespace std;
 
-int main()
-{
-	cout << "n" << setw (8) << "!n"<<endl;
-	cout << 1 << setw(8) << Factorial(1) << endl;
-	cout << 2 << setw(8) << Factorial(2) << endl;
-	cout << 3 << setw(8) << Factorial(3) << endl;
-	cout << 4 << setw(9) << Factorial(4) << endl;
-	cout << 5 << setw(10) << Factorial(5) << endl;
-	cout << 6 << setw(10) << Factorial(6) << endl;
-	cout << 7 << setw(11) << Factorial(7) << endl;
-	cout << 8 << setw(12) << Factorial(8) << endl;
-	cout << 9 << setw(13) << Factorial(9) << endl;
-	cout << 10 << setw(13) << Factorial(10) << endl;
-}
+int main() {
+	cout << "n" << "\t" << "n!\n";
+	for (int n = 1; n <= 10; n++) {
+		cout << n << "\t" << Fac(n) << "\n";
+	}
+	cout << "\n";
 
+	float p = 3.1415;
+	cout << "x" << "\t" << "sin(x)\n";
+	for (float x = 0; x <= p / 4; x = x + p / 180) {
+		cout << x << "\t" << setprecision(4) << Sin(x) << "\n";
+	}
+	cout << "\n";
+
+	int n = 10;
+	cout << "k" << "\t" << "c(k, 10)\n";
+	for (int k = 1; k <= n; k++) {
+		cout << k << "\t" << Soch(k, n) << "\n";
+	}
+}

@@ -140,11 +140,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="23.cpp" />
+    <ClCompile Include="Factorial.cpp" />
+    <ClCompile Include="Sin.cpp" />
+    <ClCompile Include="Soch.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Factorial.h" />
     <ClInclude Include="file1.h" />
     <ClInclude Include="file2.h" />
     <ClInclude Include="file3.h" />
+    <ClInclude Include="Header.h" />
+    <ClInclude Include="Sin.h" />
+    <ClInclude Include="Soch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

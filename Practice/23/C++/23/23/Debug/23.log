@@ -1,3 +1,8 @@
 ﻿  23.cpp
-D:\КФУ учеба\Programming\Practice\23\C++\23\23\file1.h(1,9): warning C4068: неизвестная прагма "_2_H_"
+D:\КФУ учеба\Programming\Practice\23\C++\23\23\23.cpp(18,18): warning C4305: инициализация: усечение из "double" в "float"
+  Factorial.cpp
+  Sin.cpp
+D:\КФУ учеба\Programming\Practice\23\C++\23\23\Sin.cpp(9,9): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  Soch.cpp
+  Создание кода...
   23.vcxproj -> D:\КФУ учеба\Programming\Practice\23\C++\23\Debug\23.exe
