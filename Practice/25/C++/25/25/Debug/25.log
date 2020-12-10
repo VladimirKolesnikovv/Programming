@@ -1,2 +1,3 @@
 ﻿  25.cpp
+D:\КФУ учеба\Programming\Practice\25\C++\25\25\25.cpp(88,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   25.vcxproj -> D:\КФУ учеба\Programming\Practice\25\C++\25\Debug\25.exe
