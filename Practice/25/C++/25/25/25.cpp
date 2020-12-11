@@ -1,108 +1,203 @@
-﻿
-#include <iostream>
-#include <stdlib.h>
-#include <time.h>
-using namespace std;
+﻿#include <iostream> 
+#include <ctime> 
+#include <vector> 
+#include <cmath> 
 
-enum SortOrder
-{
-    ASC,
-    DESC
-};
-
-void swapElements(int& element1, int& element2)
-{
-    int tempVar = element1;
-    element1 = element2;
-    element2 = tempVar;
+std::vector<int>BozoSort(std::vector<int>a, int n, bool y) {
+	int r1, r2, chlen = 0, prov = 0;
+	std::vector <int> b(n);
+	while (1) {
+		r1 = rand() % n;
+		r2 = rand() % n;
+		if (r1 != r2) {
+			std::swap(a[r1], a[r2]);
+			if (y) {
+				for (int i = 0; i < n - 1; i++) {
+					if (a[i] <= a[i + 1]) {
+						chlen++;
+					}
+					else {
+						chlen = 0;
+						break;
+					}
+					if (chlen == n - 1) {
+						for (int i = 0; i < n; i++) {
+							b[i] = a[i];
+						}
+						prov = 1;
+						break;
+					}
+				}
+			}
+			if (y == 0) {
+				for (int i = 0; i < n - 1; i++) {
+					if (a[i] >= a[i + 1]) {
+						chlen++;
+					}
+					else {
+						chlen = 0;
+						break;
+					}
+					if (chlen == n - 1) {
+						for (int i = 0; i < n; i++) {
+							b[i] = a[i];
+						}
+						prov = 1;
+						break;
+					}
+				}
+			}
+		}
+		if (prov == 1) {
+			for (int i = 0; i < n; i++) {
+				std::cout << b[i] << " ";
+			}
+			std::cout << "\n";
+			return b;
+			break;
+		}
+	}
 }
 
-bool isElementsSorted(int a, int b, SortOrder sortOrder)
-{
-    if (sortOrder == ASC)
-    {
-        return a <= b;
-    }
-    else
-    {
-        return a >= b;
-    }
+std::vector<int>BozoSort(std::vector < std::vector < int>>a, int n, bool y) {
+	int r1, r2, r3, r4, chlen = 0, prov = 0, c = 0;
+	std::vector <int> b(n);
+	while (1)
+	{
+		int f1 = sqrt(n), f2 = sqrt(n), f3 = sqrt(n), f4 = sqrt(n);
+		r1 = rand() % f1;
+		r2 = rand() % f2;
+		r3 = rand() % f3;
+		r4 = rand() % f4;
+		if (r1 != r3 || r2 != r4) {
+			std::swap(a[r1][r2], a[r3][r4]);
+			if (y) {
+				for (int i = 0; i <= sqrt(n) - 1; i++) {
+					for (int j = 0; j <= sqrt(n) - 1; j++) {
+						if (j == sqrt(n) - 1) {
+							if (i == sqrt(n) - 1) {
+								if (chlen == n - 1) {
+									for (int i = 0; i < sqrt(n); i++) {
+										for (int j = 0; j < sqrt(n); j++) {
+											b[c] = a[i][j];
+											c++;
+										}
+									}
+									prov = 1;
+									break;
+								}
+								else {
+									break;
+								}
+							}
+							if (a[i][j] <= a[i + 1][0]) {
+								chlen++;
+							}
+							else {
+								chlen = 0;
+								break;
+							}
+						}
+						else {
+							if (a[i][j] <= a[i][j + 1]) {
+								chlen++;
+							}
+							else {
+								chlen = 0;
+								break;
+							}
+						}
+					}
+				}
+			}
+			if (y == 0) {
+				for (int i = 0; i <= sqrt(n) - 1; i++) {
+					for (int j = 0; j <= sqrt(n) - 1; j++) {
+						if (j == sqrt(n) - 1) {
+							if (i == sqrt(n) - 1) {
+								if (chlen == n - 1) {
+									for (int i = 0; i < sqrt(n); i++) {
+										for (int j = 0; j < sqrt(n); j++) {
+											b[c] = a[i][j];
+											c++;
+										}
+									}
+									prov = 1;
+									break;
+								}
+								else {
+									break;
+								}
+							}
+							if (a[i][j] >= a[i + 1][0]) {
+								chlen++;
+							}
+							else {
+								chlen = 0;
+								break;
+							}
+						}
+						else {
+							if (a[i][j] >= a[i][j + 1]) {
+								chlen++;
+							}
+							else {
+								chlen = 0;
+								break;
+							}
+						}
+					}
+				}
+			}
+			if (prov == 1) {
+				for (int i = 0; i < n; i++) {
+					std::cout << b[i] << " ";
+				}
+				std::cout << "\n";
+				return b;
+				break;
+			}
+		}
+	}
 }
-
-bool isArraySorted(int* arr, int n, SortOrder sortOrder)
+std::vector<int>BozoSort(std::vector<int>a, bool y)
 {
-    for (int i = 0; i < n - 1; i++)
-    {
-        if (!isElementsSorted(arr[i], arr[i + 1], sortOrder))
-        {
-            return false;
-        }
-    }
+	if (y == 1)
+	{
+		return BozoSort(a, 3, y);
+	}
+	else
+	{
+		return BozoSort(a, 3, y);
 
-    return true;
+	}
 }
-
-int* shuffleElements(int* arr, int n)
-{
-    while (n > 1)
-    {
-        int r = rand() % n;
-        n -= 1;
-        swapElements(arr[r], arr[n]);
-    }
-
-    return arr;
-}
-
-int* bozoSort(int* arr, int n, SortOrder sortOrder)
-{
-    while (!isArraySorted(arr, n, sortOrder))
-    {
-        arr = shuffleElements(arr, n);
-    }
-
-    return arr;
-}
-
-int* fillArray(int* arr, int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        cout << "arr[" << i << "] = ";
-        cin >> arr[i];
-    }
-
-    return arr;
-}
-
-void printArray(int* arr, int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
-    }
-}
-
-int main(int argc, char** argv)
-{
-    srand(time(NULL));
-
-    int* arr;
-    int size;
-
-    cout << "n = ";
-    cin >> size;
-
-    arr = new int[size];
-    arr = fillArray(arr, size);
-
-    arr = bozoSort(arr, size, ASC);
-
-    printArray(arr, size);
-
-    delete arr;
-
-    cout << endl;
-    system("pause");
-    return 0;
+int main() {
+	setlocale(LC_ALL, "ru");
+	srand(time(NULL));
+	int n, a = 0;
+	std::cout << "Введите количество элементов в массиве\n";
+	std::cin >> n;
+	std::vector <int> mas(n);
+	std::vector < std::vector < int>> mas2(sqrt(n), std::vector<int>(sqrt(n)));
+	std::cout << "Введите элементы массива\n";
+	for (int i = 0; i < n; i++)
+	{
+		std::cin >> mas[i];
+	}
+	for (int i = 0; i < sqrt(n); i++)
+	{
+		for (int j = 0; j < sqrt(n); j++)
+		{
+			mas2[i][j] = mas[a];
+			a++;
+		}
+	}
+	std::cout << "\n";
+	BozoSort(mas, n, 1);
+	BozoSort(mas, n, 0);
+	BozoSort(mas2, n, 1);
+	BozoSort(mas2, n, 0);
+	BozoSort(mas, 1);
+	BozoSort(mas, 0);
 }
