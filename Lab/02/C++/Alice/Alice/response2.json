@@ -1,0 +1,40 @@
+{
+    "response":{
+    "text":"Какие команды вы хотите узнать?",
+    "tts":"Какие команды вы хотите узнать",
+    "end_session":false,
+    "buttons":[
+    {
+    "title":"Очистить корзину",
+    "hide":true
+    },
+    {
+    "title":"Добавить в корзину",
+    "hide":true
+    },
+    {
+    "title":"Удалить из корзины",
+    "hide":true
+    },
+    {
+    "title":"Что в корзине",
+    "hide":true
+    },
+    {
+    "title":"Сумма",
+    "hide":true
+    },
+    {
+    "title":"Покупка завершена",
+    "hide":true
+    },
+    {
+    "title":"Выйти",
+    "hide":true
+    }
+    ]
+    },
+    "session_state":{
+    },
+    "version":"1.0"
+    }
